@@ -1,0 +1,80 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile containing contact details",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" }
+      },
+      "required": ["name", "email"]
+    },
+    "UserAddress": {
+      "title": "UserAddress",
+      "description": "Shipping address detail",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "label": { "type": "string" },
+        "street": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "zipCode": { "type": "string" },
+        "isDefault": { "type": "boolean" }
+      },
+      "required": ["id", "label", "street", "city", "state", "zipCode"]
+    },
+    "OrderItem": {
+      "title": "OrderItem",
+      "description": "An item in a cake order",
+      "type": "object",
+      "properties": {
+        "cakeId": { "type": "string" },
+        "cakeName": { "type": "string" },
+        "quantity": { "type": "number" },
+        "size": { "type": "string" },
+        "flavor": { "type": "string" },
+        "customMessage": { "type": "string" },
+        "price": { "type": "number" },
+        "imageUrl": { "type": "string" }
+      },
+      "required": ["cakeId", "cakeName", "quantity", "size", "flavor", "price"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "A confirmed cake order with details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "items": { "type": "array" },
+        "shippingAddress": { "type": "object" },
+        "paymentMethod": { "type": "string" },
+        "paymentDetails": { "type": "object" },
+        "subtotal": { "type": "number" },
+        "deliveryFee": { "type": "number" },
+        "tax": { "type": "number" },
+        "total": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "userEmail", "items", "shippingAddress", "paymentMethod", "subtotal", "total", "createdAt", "status"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Collection of user profiles containing their details"
+    },
+    "users/{userId}/addresses/{addressId}": {
+      "schema": { "$ref": "#/entities/UserAddress" },
+      "description": "Sub-collection of user shipping addresses"
+    },
+    "users/{userId}/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/Order" },
+      "description": "Sub-collection of user cake orders"
+    }
+  }
+}

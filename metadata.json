@@ -1,0 +1,8 @@
+{
+  "name": "Sweet Bloom Bakery Paris",
+  "description": "An elegant online cake shop with search, product details, address management, profile editing, a smooth checkout process, and order tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

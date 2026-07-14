@@ -1,0 +1,28 @@
+{
+  "profile": {
+    "name": "Mukesh Kumar",
+    "email": "captainmukesh775@gmail.com",
+    "phone": "+1 (555) 019-2834",
+    "addresses": [
+      {
+        "id": "addr-home",
+        "label": "Home",
+        "street": "456 Sakura Blossom Lane, Apt 2B",
+        "city": "Sweetwater",
+        "state": "California",
+        "zipCode": "90210",
+        "isDefault": true
+      },
+      {
+        "id": "addr-office",
+        "label": "Office",
+        "street": "789 Enterprise Blvd, Floor 12",
+        "city": "San Francisco",
+        "state": "California",
+        "zipCode": "94107",
+        "isDefault": false
+      }
+    ]
+  },
+  "orders": []
+}
